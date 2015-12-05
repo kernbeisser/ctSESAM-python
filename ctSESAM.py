@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from hashlib import pbkdf2_hmac
+from getpass import getpass
 
 small_letters = list('abcdefghijklmnopqrstuvwxyz')
 big_letters = list('ABCDEFGHJKLMNPQRTUVWXYZ')
@@ -19,7 +20,7 @@ def convert_bytes_to_password(hashed_bytes, length):
         number = number // len(password_characters)
     return password
 
-master_password = input('Masterpasswort: ')
+master_password = getpass('Masterpasswort: ')
 domain = input('Domain: ')
 while len(domain) < 1:
     print('Bitte gib eine Domain an, für die das Passwort generiert werden soll.')
